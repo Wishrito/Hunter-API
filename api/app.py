@@ -2,20 +2,23 @@ import os
 import sqlite3
 
 import config
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, redirect, request
 
 app = Flask(__name__)
-file: str = './flaskTests/personnes.sqlite'
+file = './flaskTests/personnes.sqlite'
 
-# Création de la base de données et de la table si elles n'existent pas
 
 
 def verifier_cle_api():
     key = request.headers.get('API-Key')
-    if key != config.Config().login():
-        return False
-    return True
+    if key == config.Config().login():
+        return True
+    return False
 
+
+@app.route('/', methods=['GET'])
+def home():
+    return redirect('index.html')
 
 @app.route('/personnes', methods=['GET'])
 def get_personnes():
