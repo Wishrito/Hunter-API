@@ -1,0 +1,20 @@
+ul {
+    list-style-type: none;
+    /* Supprime les puces */
+    padding: 0;
+    margin: 0;
+}
+
+/* Style pour chaque élément de liste */
+li {
+    margin-bottom: 10px;
+    /* Marge en bas pour espacer les éléments */
+    background-color: #f2f2f2;
+    /* Couleur de fond */
+    padding: 10px;
+    /* Espacement interne */
+    border-radius: 5px;
+    /* Coins arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Ombre */
+}

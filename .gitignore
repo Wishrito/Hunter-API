@@ -14,6 +14,8 @@ venv.bak/
 
 # tests files
 *test*
+2.py
+*.sql
 
 # settings
 .*

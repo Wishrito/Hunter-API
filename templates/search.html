@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="Fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche : {{query}}</title>
+    <style type="text/css">
+        /* Style du paragraphe "Resultat de la recherche" */
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Style pour la liste non ordonnée */
+        ul {
+            list-style-type: none;
+            /* Supprime les puces */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Style pour chaque élément de liste */
+        li {
+            margin-bottom: 10px;
+            /* Marge en bas pour espacer les éléments */
+            background-color: #f2f2f2;
+            /* Couleur de fond */
+            padding: 10px;
+            /* Espacement interne */
+            border-radius: 5px;
+            /* Coins arrondis */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Ombre */
+        }
+
+        /* Style des liens */
+        li a {
+            text-decoration: none;
+            /* Supprime la décoration des liens */
+            color: #333;
+            /* Couleur du texte des liens */
+            font-weight: bold;
+            /* Texte en gras */
+        }
+
+        /* Style des liens au survol */
+        li a:hover {
+            color: #555;
+            /* Couleur du texte des liens au survol */
+        }
+    </style>
+</head>
+
+<body>
+    <p>Resultat de la recherche :</p>
+    <ul>
+        {% if error != 'pas de resultat'%}
+        {% for page in nom_dossier %}
+
+
+        <li>
+            <a href="/redirect/{{page.url}}">{{page.page}}</a>
+        </li>
+        {% endfor %}
+        {% endif %}
+        {% if error == 'pas de resultat'%}
+        <p>{{error}}</p>
+        {% endif %}
+
+    </ul>
+
+</body>
+
+</html>
